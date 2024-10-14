@@ -23,9 +23,19 @@ public class Producto {
     private String nombreProducto;
 
     @Column(nullable = false)
-    private long precio;
+    private Long precio;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_categoria")
     private Categoria categoria;
+
+        // Constructor vacío
+        public Producto() {
+        }
+    
+        // Constructor con parámetros
+        public Producto(String nombreProducto, Categoria categoria) {
+            this.nombreProducto = nombreProducto;
+            this.categoria = categoria;
+        }
 }
